@@ -6,11 +6,11 @@
 /*   By: adghouai <adghouai@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/20 17:06:09 by adghouai          #+#    #+#             */
-/*   Updated: 2026/01/20 17:07:56 by adghouai         ###   ########lyon.fr   */
+/*   Updated: 2026/01/20 17:38:24 by adghouai         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 void	free_double_tab(char **tab)
 {

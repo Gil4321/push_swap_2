@@ -6,11 +6,11 @@
 /*   By: adghouai <adghouai@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/30 22:08:31 by adghouai          #+#    #+#             */
-/*   Updated: 2026/01/20 17:06:21 by adghouai         ###   ########lyon.fr   */
+/*   Updated: 2026/01/20 17:38:21 by adghouai         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 int	option_check(char *arg)
 {

@@ -6,7 +6,7 @@
 /*   By: adghouai <adghouai@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/30 21:12:42 by adghouai          #+#    #+#             */
-/*   Updated: 2026/01/20 14:00:08 by adghouai         ###   ########lyon.fr   */
+/*   Updated: 2026/01/20 16:39:51 by adghouai         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,31 +38,53 @@ static float	compute_disorder(int **tab, size_t size)
 }
 
 #include <stdio.h>
-void	show_stack(t_stack a)
+
+void	show_stack(t_stack *a)
 {
 	size_t	i;
 
 	i = 0;
-	while (i < a.size)
+	while (i < a->size)
 	{
-		printf("%d %d\n", a.array[i][0], a.array[i][1]);
+		printf("%d %d\n", a->array[i][0], a->array[i][1]);
 		i++;
 	}
 }
 
+void	sort_stack(t_stack *a, t_stack *b, t_strat strat)
+{
+	if (strat.strategy == 1)
+		simple_algo(a, b);
+/* 	else if (strat.strategy == 2)
+		medium_algo(a, b); */
+	else if (strat.strategy == 3)
+		find_max_div(a, b);
+	else
+	{
+		if (strat.disorder < 0.2)
+			simple_algo(a, b);
+/* 		else if (strat.disorder < 0.5)
+			medium_algo(a, b); */
+		else
+			find_max_div(a, b);
+	}
+	show_stack(a);
+	free_stack(a, a->size);
+	free_stack(b, a->size);
+}
+
 int	main(int argc, char **argv)
 {
-	int			strategy;
-	float		disorder;
-	t_stack		a;
-	t_stack		b;
+	t_strat	strat;
+	t_stack	a;
+	t_stack	b;
 
 	if (argc == 1)
 		return (0);
-	strategy = options_selector(argc, argv);
+	strat.strategy = options_selector(argc, argv);
 	error_checker(argv, argc, &a);
-	disorder = compute_disorder(a.array, a.size);
-	if (disorder == 0)
+	strat.disorder = compute_disorder(a.array, a.size);
+	if (strat.disorder == 0)
 	{
 		free_stack(&a, a.size);
 		return (0);
@@ -73,9 +95,6 @@ int	main(int argc, char **argv)
 		exit(EXIT_FAILURE);
 	}
 	b.size = 0;
-	find_max_div(&a, &b);
-	show_stack(a);
-	free_stack(&a, a.size);
-	free_stack(&b, a.size);
+	sort_stack(&a, &b, strat);
 	return (0);
 }

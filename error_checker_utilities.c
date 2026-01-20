@@ -6,7 +6,7 @@
 /*   By: adghouai <adghouai@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/30 22:08:31 by adghouai          #+#    #+#             */
-/*   Updated: 2026/01/19 16:34:49 by adghouai         ###   ########lyon.fr   */
+/*   Updated: 2026/01/20 16:58:10 by adghouai         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,10 @@ int	ft_atoi_range(const char *nptr)
 	sign = 1;
 	result = 0;
 	if (nptr[i] == '-')
+	{
 		sign = -1;
+		i++;
+	}
 	while (nptr[i] >= '0' && nptr[i] <= '9')
 	{
 		result = (result * 10) + ((nptr[i] - 48) * sign);

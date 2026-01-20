@@ -6,7 +6,7 @@
 /*   By: adghouai <adghouai@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/30 21:37:16 by adghouai          #+#    #+#             */
-/*   Updated: 2026/01/20 16:37:12 by adghouai         ###   ########lyon.fr   */
+/*   Updated: 2026/01/20 17:12:20 by adghouai         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ typedef struct s_stack
 	size_t	size;
 }			t_stack;
 
+// Parsing and error handling
 void		error_checker(char **argv, int argc, t_stack *a);
 int			ft_atoi(const char *nptr);
 int			ft_atoi_range(const char *nptr);
@@ -41,12 +42,22 @@ size_t		compute_tab_len(char **argv, int argc);
 void		free_double_tab(char **tab);
 int			options_selector(int argc, char **argv);
 int			ft_strcmp(char *s1, const char *s2);
-void		simple_algo(t_stack *a, t_stack *b);
 int			initialize_stack_array(t_stack *stack, size_t size);
 void		free_stack(t_stack *stack, size_t j);
-void		get_ptr_value(int *dst, int *src);
+
+// Array filling functions
+void		fill_array(t_stack *a, char **argv, int argc);
+void		fill_array_bis(char **split_args, t_stack *a, size_t *k);
 void		fill_array_index(t_stack *a);
+
+
+// Simple algo
+void		simple_algo(t_stack *a, t_stack *b);
+
+// Medium algo
 void		find_max_div(t_stack *a, t_stack *b);
+
+// Operations
 void		pa(t_stack *a, t_stack *b);
 void		pb(t_stack *a, t_stack *b);
 void		ra(t_stack *a);
@@ -58,6 +69,7 @@ void		rrr(t_stack *a, t_stack *b);
 void		sa(t_stack *a);
 void		sb(t_stack *b);
 void		ss(t_stack *a, t_stack *b);
+void		get_ptr_value(int *dst, int *src);
 
 // Chunks sort utils
 size_t		ft_sqrt(size_t nb);

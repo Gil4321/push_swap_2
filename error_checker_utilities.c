@@ -6,7 +6,7 @@
 /*   By: adghouai <adghouai@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/30 22:08:31 by adghouai          #+#    #+#             */
-/*   Updated: 2026/01/20 16:44:34 by adghouai         ###   ########lyon.fr   */
+/*   Updated: 2026/01/20 17:06:21 by adghouai         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,17 +106,4 @@ size_t	compute_tab_len(char **argv, int argc)
 		i++;
 	}
 	return (len);
-}
-
-void	free_double_tab(char **tab)
-{
-	int	i;
-
-	i = 0;
-	while (tab[i])
-	{
-		free(tab[i]);
-		i++;
-	}
-	free(tab);
 }

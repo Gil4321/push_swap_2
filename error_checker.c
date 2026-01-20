@@ -6,7 +6,7 @@
 /*   By: adghouai <adghouai@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/30 22:01:02 by adghouai          #+#    #+#             */
-/*   Updated: 2026/01/19 17:39:05 by adghouai         ###   ########lyon.fr   */
+/*   Updated: 2026/01/20 17:06:40 by adghouai         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,37 +89,6 @@ static void	duplicate_check(t_stack *a)
 			}
 			j++;
 		}
-		i++;
-	}
-}
-
-static void	fill_array(t_stack *a, char **argv, int argc)
-{
-	int		i;
-	size_t	j;
-	size_t	k;
-	char	**split_args;
-
-	i = 1;
-	k = 0;
-	while (option_check(argv[i]))
-		i++;
-	while (i < argc)
-	{
-		j = 0;
-		split_args = ft_split(argv[i], ' ');
-		if (!split_args)
-		{
-			free_stack(a, a->size);
-			exit(EXIT_FAILURE);
-		}
-		while (split_args[j])
-		{
-			a->array[k][0] = ft_atoi(split_args[j]);
-			j++;
-			k++;
-		}
-		free_double_tab(split_args);
 		i++;
 	}
 }

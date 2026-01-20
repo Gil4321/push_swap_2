@@ -2,7 +2,7 @@ SRC = main.c error_checker.c error_checker_utilities.c \
 	  algorithms/simple_algo.c algorithms/complex_algo.c \
 	  operations/rotate.c operations/reverse_rotate.c \
 	  operations/swap.c operations/push.c \
-	  options_selector.c utils/utils.c 
+	  options_selector.c utils/utils.c error_checker_utilities_2.c
 	  
 #algorithms/medium_algo.c utils/chunk_rotate.c utils/chunk_utils.c utils/chunk_find.c 
 CC = cc

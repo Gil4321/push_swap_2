@@ -6,7 +6,7 @@
 /*   By: adghouai <adghouai@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/30 21:12:42 by adghouai          #+#    #+#             */
-/*   Updated: 2026/01/20 16:39:51 by adghouai         ###   ########lyon.fr   */
+/*   Updated: 2026/01/20 17:15:30 by adghouai         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	show_stack(t_stack *a)
 	}
 }
 
-void	sort_stack(t_stack *a, t_stack *b, t_strat strat)
+static void	sort_stack(t_stack *a, t_stack *b, t_strat strat)
 {
 	if (strat.strategy == 1)
 		simple_algo(a, b);

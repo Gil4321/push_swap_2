@@ -6,7 +6,7 @@
 /*   By: adghouai <adghouai@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/30 21:37:16 by adghouai          #+#    #+#             */
-/*   Updated: 2026/01/20 13:59:54 by adghouai         ###   ########lyon.fr   */
+/*   Updated: 2026/01/20 16:21:03 by adghouai         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,12 @@
 
 # include <stdlib.h>
 # include <unistd.h>
+
+typedef struct s_strat
+{
+	int		strategy;
+	float	disorder;
+}			t_strat;
 
 typedef struct s_stack
 {

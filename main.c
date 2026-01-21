@@ -6,7 +6,7 @@
 /*   By: adghouai <adghouai@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/30 21:12:42 by adghouai          #+#    #+#             */
-/*   Updated: 2026/01/20 17:15:30 by adghouai         ###   ########lyon.fr   */
+/*   Updated: 2026/01/21 13:04:17 by adghouai         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,6 @@ static float	compute_disorder(int **tab, size_t size)
 	return (mistakes / pairs);
 }
 
-#include <stdio.h>
-
 void	show_stack(t_stack *a)
 {
 	size_t	i;
@@ -46,7 +44,7 @@ void	show_stack(t_stack *a)
 	i = 0;
 	while (i < a->size)
 	{
-		printf("%d %d\n", a->array[i][0], a->array[i][1]);
+		ft_printf("%d %d\n", 1, a->array[i][0], a->array[i][1]);
 		i++;
 	}
 }

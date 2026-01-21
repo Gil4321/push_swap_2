@@ -6,7 +6,7 @@
 /*   By: adghouai <adghouai@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/30 21:37:16 by adghouai          #+#    #+#             */
-/*   Updated: 2026/01/20 17:12:20 by adghouai         ###   ########lyon.fr   */
+/*   Updated: 2026/01/21 13:03:08 by adghouai         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,9 @@ typedef struct s_stack
 	size_t	size;
 }			t_stack;
 
+// ft_printf
+int			ft_printf(const char *str, int output, ...);
+
 // Parsing and error handling
 void		error_checker(char **argv, int argc, t_stack *a);
 int			ft_atoi(const char *nptr);
@@ -49,7 +52,6 @@ void		free_stack(t_stack *stack, size_t j);
 void		fill_array(t_stack *a, char **argv, int argc);
 void		fill_array_bis(char **split_args, t_stack *a, size_t *k);
 void		fill_array_index(t_stack *a);
-
 
 // Simple algo
 void		simple_algo(t_stack *a, t_stack *b);

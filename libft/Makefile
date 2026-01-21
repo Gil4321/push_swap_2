@@ -5,8 +5,8 @@ SRC = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c \
 	ft_atoi.c ft_calloc.c ft_strdup.c ft_substr.c \
 	ft_strtrim.c ft_split.c ft_itoa.c ft_strmapi.c \
 	ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c \
-	ft_putnbr_fd.c ft_isprint.c ft_strlen.c \
-	ft_memset.c ft_bzero.c ft_striteri.c ft_strjoin.c
+	ft_putnbr_fd.c ft_isprint.c \
+	ft_memset.c ft_bzero.c ft_striteri.c ft_strjoin.c 
 
 BONUS = ft_lstnew_bonus.c ft_lstadd_front_bonus.c ft_lstsize_bonus.c \
 	ft_lstlast_bonus.c ft_lstadd_back_bonus.c ft_lstdelone_bonus.c \
@@ -26,9 +26,10 @@ OBJ = $(SRC:.c=.o)
 
 OBJBONUS = $(BONUS:.c=.o)
 
-.PHONY: all clean fclean re bonus
+all: make_ft_printf $(NAME)
 
-all: $(NAME)
+make_ft_printf:
+	(cd ft_printf && make)
 
 $(NAME): $(OBJ)
 	ar rcs $@ $^
@@ -37,14 +38,16 @@ $(NAME): $(OBJ)
 	$(CC) $(CFLAGS) -MMD -MP -c $< -o $@
 
 clean:
-	rm -rf $(OBJ) $(DEP) $(OBJBONUS) $(DEPBONUS)
+	rm -rf $(OBJ) $(DEP) $(OBJBONUS) $(DEPBONUS) ; (cd ft_printf && make clean)
 
 fclean: clean
-	rm -rf $(NAME)
+	rm -rf $(NAME) ; (cd ft_printf && make fclean)
 
 re: fclean all
 
 bonus:
 	$(MAKE) $(NAME) SRC="$(SRC) $(BONUS)"
+
+.PHONY: all clean fclean re bonus make_ft_printf
 
 -include $(DEP)

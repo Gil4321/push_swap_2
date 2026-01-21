@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: acombier <acombier@student.42.fr>          +#+  +:+       +#+        */
+/*   By: adghouai <adghouai@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/30 21:12:42 by adghouai          #+#    #+#             */
-/*   Updated: 2026/01/21 18:06:38 by acombier         ###   ########.fr       */
+/*   Updated: 2026/01/21 18:23:53 by adghouai         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static float	compute_disorder(int **tab, size_t size)
 	mistakes = 0;
 	pairs = 0;
 	i = 0;
-	while (i < (size - 1))
+	while (i < size)
 	{
 		j = i + 1;
 		while (j < size)
@@ -36,22 +36,6 @@ static float	compute_disorder(int **tab, size_t size)
 	}
 	return (mistakes / pairs);
 }
-
-/* static void summ_bench(t_benchmark *bench, t_benchmark *a, t_benchmark *b)
-{
-	bench->total_ops = a->total_ops + b->total_ops;
-	bench->sa = a->sa + b->sa;
-	bench->sb = a->sb + b->sb;
-	bench->ss = a->ss + b->ss;
-	bench->pa = a->pa + b->pa;
-	bench->pb = a->pb + b->pb;
-	bench->ra = a->ra + b->ra;
-	bench->rr = a->rr + b->rr;
-	bench->rb = a->rb + b->rb;
-	bench->rra = a->rra + b->rra;
-	bench->rrb = a->rrb + b->rrb;
-	bench->rrr = a->rrr + b->rrr;
-} */
 
 static void	sort_stack(t_stack *a, t_stack *b, t_benchmark bench)
 {
@@ -74,15 +58,14 @@ static void	sort_stack(t_stack *a, t_stack *b, t_benchmark bench)
 	}
 	free_stack(a, a->size);
 	free_stack(b, a->size);
-//	summ_bench(&bench, a->bench, b->bench);
 	print_benchmark(&bench);
 }
 
 int	main(int argc, char **argv)
 {
 	t_benchmark	bench;
-	t_stack	a;
-	t_stack	b;
+	t_stack		a;
+	t_stack		b;
 
 	if (argc == 1)
 		return (0);

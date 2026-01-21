@@ -6,7 +6,7 @@
 /*   By: adghouai <adghouai@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/30 22:01:02 by adghouai          #+#    #+#             */
-/*   Updated: 2026/01/20 17:06:40 by adghouai         ###   ########lyon.fr   */
+/*   Updated: 2026/01/21 18:21:42 by adghouai         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ static void	duplicate_check(t_stack *a)
 	size_t	j;
 
 	i = 0;
-	while (i < (a->size - 1))
+	while (i < a->size)
 	{
 		j = i + 1;
 		while (j < a->size)

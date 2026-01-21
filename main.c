@@ -6,7 +6,7 @@
 /*   By: adghouai <adghouai@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/30 21:12:42 by adghouai          #+#    #+#             */
-/*   Updated: 2026/01/21 13:04:17 by adghouai         ###   ########lyon.fr   */
+/*   Updated: 2026/01/21 13:16:03 by adghouai         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	show_stack(t_stack *a)
 	i = 0;
 	while (i < a->size)
 	{
-		ft_printf("%d %d\n", 1, a->array[i][0], a->array[i][1]);
+		ft_printf("%d %d\n", 2, a->array[i][0], a->array[i][1]);
 		i++;
 	}
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adghouai <adghouai@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: acombier <acombier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 16:58:29 by acombier          #+#    #+#             */
-/*   Updated: 2026/01/19 17:24:27 by adghouai         ###   ########lyon.fr   */
+/*   Updated: 2026/01/21 15:15:39 by acombier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,9 @@ void	ra(t_stack *a)
 		i++;
 	}
 	get_ptr_value(a->array[a->size - 1], temp);
+	printf("ra\n");
+	a->bench->ra++;
+	a->bench->total_ops++;
 }
 
 void	rb(t_stack *b)
@@ -44,6 +47,10 @@ void	rb(t_stack *b)
 		i++;
 	}
 	get_ptr_value(b->array[b->size - 1], temp);
+
+	printf("rb\n");
+	b->bench->rb++;
+	b->bench->total_ops++;
 }
 
 void	rr(t_stack *a, t_stack *b)
@@ -72,5 +79,8 @@ void	rr(t_stack *a, t_stack *b)
 			i++;
 		}
 		get_ptr_value(b->array[b->size - 1], temp);
+		printf("rr\n");
+		a->bench->rr++;
+		a->bench->total_ops++;
 	}
 }

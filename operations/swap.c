@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adghouai <adghouai@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: acombier <acombier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 16:57:40 by acombier          #+#    #+#             */
-/*   Updated: 2026/01/19 17:24:17 by adghouai         ###   ########lyon.fr   */
+/*   Updated: 2026/01/21 15:16:07 by acombier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,10 @@ void	sa(t_stack *a)
 	get_ptr_value(temp, a->array[0]);
 	get_ptr_value(a->array[0], a->array[1]);
 	get_ptr_value(a->array[1], temp);
+
+	printf("sa\n");
+	a->bench->sa++;
+	a->bench->total_ops++;
 }
 
 void	sb(t_stack *b)
@@ -32,6 +36,10 @@ void	sb(t_stack *b)
 	get_ptr_value(temp, b->array[0]);
 	get_ptr_value(b->array[0], b->array[1]);
 	get_ptr_value(b->array[1], temp);
+	
+	printf("sb\n");
+	b->bench->sb++;
+	b->bench->total_ops++;
 }
 
 void	ss(t_stack *a, t_stack *b)
@@ -50,4 +58,7 @@ void	ss(t_stack *a, t_stack *b)
 		get_ptr_value(b->array[0], b->array[1]);
 		get_ptr_value(b->array[1], temp);
 	}
+	printf("ss\n");
+	a->bench->ss++;
+	a->bench->total_ops++;
 }

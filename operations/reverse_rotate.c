@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   reverse_rotate.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adghouai <adghouai@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: acombier <acombier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 16:58:48 by acombier          #+#    #+#             */
-/*   Updated: 2026/01/19 17:24:33 by adghouai         ###   ########lyon.fr   */
+/*   Updated: 2026/01/21 15:14:38 by acombier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,10 @@ void	rra(t_stack *a)
 		i--;
 	}
 	get_ptr_value(a->array[0], temp);
+
+	printf("rra\n");
+	a->bench->rra++;
+	a->bench->total_ops++;
 }
 
 void	rrb(t_stack *b)
@@ -44,6 +48,10 @@ void	rrb(t_stack *b)
 		i--;
 	}
 	get_ptr_value(b->array[0], temp);
+	
+	printf("rrb\n");
+	b->bench->rrb++;
+	b->bench->total_ops++;
 }
 
 void	rrr(t_stack *a, t_stack *b)
@@ -73,4 +81,9 @@ void	rrr(t_stack *a, t_stack *b)
 		}
 		get_ptr_value(b->array[0], temp);
 	}
+
+	printf("rrr\n");
+	a->bench->rrr++;
+	a->bench->total_ops++;
 }
+

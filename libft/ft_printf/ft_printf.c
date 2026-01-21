@@ -6,7 +6,7 @@
 /*   By: adghouai <adghouai@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/23 20:53:24 by adghouai          #+#    #+#             */
-/*   Updated: 2026/01/21 13:02:07 by adghouai         ###   ########lyon.fr   */
+/*   Updated: 2026/01/21 13:14:36 by adghouai         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,14 @@ static void	parse_type(char c, va_list args, int *count_char, int output)
 	else if (c == 'd' || c == 'i')
 		(*count_char) += write_decimal(va_arg(args, int), output);
 	else if (c == 'u')
-		(*count_char) += write_unsigned_decimal(va_arg(args, unsigned int), output);
+		(*count_char) += write_unsigned_decimal(va_arg(args, unsigned int),
+				output);
 	else if (c == 'x')
-		(*count_char) += write_hex_lowercase(va_arg(args, unsigned int), output);
+		(*count_char) += write_hex_lowercase(va_arg(args, unsigned int),
+				output);
 	else if (c == 'X')
-		(*count_char) += write_hex_uppercase(va_arg(args, unsigned int), output);
+		(*count_char) += write_hex_uppercase(va_arg(args, unsigned int),
+				output);
 	else if (c == '%')
 		(*count_char) += write_percent_sign(output);
 	else

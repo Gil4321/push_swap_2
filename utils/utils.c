@@ -6,13 +6,13 @@
 /*   By: adghouai <adghouai@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/19 12:25:38 by adghouai          #+#    #+#             */
-/*   Updated: 2026/01/20 17:15:53 by adghouai         ###   ########lyon.fr   */
+/*   Updated: 2026/01/21 18:47:13 by adghouai         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int	ft_strcmp(char	*s1, const char *s2)
+int	ft_strcmp(char *s1, const char *s2)
 {
 	size_t	i;
 

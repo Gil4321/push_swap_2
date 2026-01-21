@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   benchmark.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: acombier <acombier@student.42.fr>          +#+  +:+       +#+        */
+/*   By: adghouai <adghouai@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 15:18:04 by acombier          #+#    #+#             */
-/*   Updated: 2026/01/21 17:33:25 by acombier         ###   ########.fr       */
+/*   Updated: 2026/01/21 18:46:51 by adghouai         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ static char	*parse_strategy(int strat)
 
 static char	*parse_complexity(t_benchmark *bench)
 {
-
 	if (bench->strategy == 1)
 		return ("O(n2)");
 	else if (bench->strategy == 2)
@@ -91,10 +90,10 @@ void	print_benchmark(t_benchmark *bench)
 	res = bench->disorder * 10000;
 	ft_printf("[bench] disorder: ", 2);
 	ft_putnbr_fd(res, 2, 0);
- 	ft_printf("[bench] strategy: %s / %s\n", 2, parse_strategy(bench->strategy),
+	ft_printf("[bench] strategy: %s / %s\n", 2, parse_strategy(bench->strategy),
 		parse_complexity(bench));
-	ft_printf("[bench] total_ops: %d\n", 2,  bench->total_ops);
-	ft_printf("[bench] sa: %d, sb: %d, ss: %d, pa: %d, pb: %d\n", 2 , bench->sa,
+	ft_printf("[bench] total_ops: %d\n", 2, bench->total_ops);
+	ft_printf("[bench] sa: %d, sb: %d, ss: %d, pa: %d, pb: %d\n", 2, bench->sa,
 		bench->sb, bench->ss, bench->pa, bench->pb);
 	ft_printf("[bench] ra: %d, rb: %d, rr: %d, rra: %d, rrb: %d, rrr: %d\n", 2,
 		bench->ra, bench->rb, bench->rr, bench->rra, bench->rrb, bench->rrr);

@@ -6,7 +6,7 @@
 /*   By: adghouai <adghouai@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/30 21:12:42 by adghouai          #+#    #+#             */
-/*   Updated: 2026/01/21 18:23:53 by adghouai         ###   ########lyon.fr   */
+/*   Updated: 2026/01/21 18:41:50 by adghouai         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ static float	compute_disorder(int **tab, size_t size)
 		}
 		i++;
 	}
+	if (pairs == 0)
+		return (0);
 	return (mistakes / pairs);
 }
 
@@ -76,7 +78,7 @@ int	main(int argc, char **argv)
 	if (bench.disorder == 0)
 	{
 		free_stack(&a, a.size);
-		if (bench.enabled == 1)
+		if (bench.enabled == 1 && a.size > 0)
 			print_benchmark(&bench);
 		return (0);
 	}

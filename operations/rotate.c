@@ -6,7 +6,7 @@
 /*   By: acombier <acombier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 16:58:29 by acombier          #+#    #+#             */
-/*   Updated: 2026/01/21 15:15:39 by acombier         ###   ########.fr       */
+/*   Updated: 2026/01/21 18:04:19 by acombier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	ra(t_stack *a)
 		i++;
 	}
 	get_ptr_value(a->array[a->size - 1], temp);
-	printf("ra\n");
+	ft_printf("ra\n", 1);
 	a->bench->ra++;
 	a->bench->total_ops++;
 }
@@ -47,8 +47,7 @@ void	rb(t_stack *b)
 		i++;
 	}
 	get_ptr_value(b->array[b->size - 1], temp);
-
-	printf("rb\n");
+	ft_printf("rb\n", 1);
 	b->bench->rb++;
 	b->bench->total_ops++;
 }
@@ -79,7 +78,7 @@ void	rr(t_stack *a, t_stack *b)
 			i++;
 		}
 		get_ptr_value(b->array[b->size - 1], temp);
-		printf("rr\n");
+		ft_printf("rr\n", 1);
 		a->bench->rr++;
 		a->bench->total_ops++;
 	}

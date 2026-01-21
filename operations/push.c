@@ -6,12 +6,12 @@
 /*   By: acombier <acombier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 16:58:13 by acombier          #+#    #+#             */
-/*   Updated: 2026/01/21 15:14:11 by acombier         ###   ########.fr       */
+/*   Updated: 2026/01/21 15:37:15 by acombier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-#include "../benchmark.h"
+
 
 void	pa(t_stack *a, t_stack *b)
 {
@@ -36,8 +36,7 @@ void	pa(t_stack *a, t_stack *b)
 		i++;
 	}
 	b->size--;
-
-	printf("pa\n");
+	ft_printf("pa\n", 1);
 	a->bench->pa++;
 	a->bench->total_ops++;
 }
@@ -65,8 +64,7 @@ void	pb(t_stack *a, t_stack *b)
 		i++;
 	}
 	a->size--;
-
-	printf("pb\n");
-	b->bench->pb++;
-	b->bench->total_ops++;
+	ft_printf("pb\n", 1);
+	a->bench->pb++;
+	a->bench->total_ops++;
 }

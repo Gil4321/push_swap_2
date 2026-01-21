@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adghouai <adghouai@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: acombier <acombier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/30 21:12:42 by adghouai          #+#    #+#             */
-/*   Updated: 2026/01/21 13:16:03 by adghouai         ###   ########lyon.fr   */
+/*   Updated: 2026/01/21 18:06:38 by acombier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,54 +37,64 @@ static float	compute_disorder(int **tab, size_t size)
 	return (mistakes / pairs);
 }
 
-void	show_stack(t_stack *a)
+/* static void summ_bench(t_benchmark *bench, t_benchmark *a, t_benchmark *b)
 {
-	size_t	i;
+	bench->total_ops = a->total_ops + b->total_ops;
+	bench->sa = a->sa + b->sa;
+	bench->sb = a->sb + b->sb;
+	bench->ss = a->ss + b->ss;
+	bench->pa = a->pa + b->pa;
+	bench->pb = a->pb + b->pb;
+	bench->ra = a->ra + b->ra;
+	bench->rr = a->rr + b->rr;
+	bench->rb = a->rb + b->rb;
+	bench->rra = a->rra + b->rra;
+	bench->rrb = a->rrb + b->rrb;
+	bench->rrr = a->rrr + b->rrr;
+} */
 
-	i = 0;
-	while (i < a->size)
-	{
-		ft_printf("%d %d\n", 2, a->array[i][0], a->array[i][1]);
-		i++;
-	}
-}
-
-static void	sort_stack(t_stack *a, t_stack *b, t_strat strat)
+static void	sort_stack(t_stack *a, t_stack *b, t_benchmark bench)
 {
-	if (strat.strategy == 1)
+	a->bench = &bench;
+	b->bench = &bench;
+	if (bench.strategy == 1)
 		simple_algo(a, b);
-/* 	else if (strat.strategy == 2)
-		medium_algo(a, b); */
-	else if (strat.strategy == 3)
+	else if (bench.strategy == 2)
+		medium_algo(a, b);
+	else if (bench.strategy == 3)
 		find_max_div(a, b);
 	else
 	{
-		if (strat.disorder < 0.2)
+		if (bench.disorder < 0.2)
 			simple_algo(a, b);
-/* 		else if (strat.disorder < 0.5)
-			medium_algo(a, b); */
+		else if (bench.disorder < 0.5)
+			medium_algo(a, b);
 		else
 			find_max_div(a, b);
 	}
-	show_stack(a);
 	free_stack(a, a->size);
 	free_stack(b, a->size);
+//	summ_bench(&bench, a->bench, b->bench);
+	print_benchmark(&bench);
 }
 
 int	main(int argc, char **argv)
 {
-	t_strat	strat;
+	t_benchmark	bench;
 	t_stack	a;
 	t_stack	b;
 
 	if (argc == 1)
 		return (0);
-	strat.strategy = options_selector(argc, argv);
+	init_benchmark(&bench);
+	options_selector(argc, argv, &bench);
 	error_checker(argv, argc, &a);
-	strat.disorder = compute_disorder(a.array, a.size);
-	if (strat.disorder == 0)
+	bench.disorder = compute_disorder(a.array, a.size);
+	if (bench.disorder == 0)
 	{
 		free_stack(&a, a.size);
+		if (bench.enabled == 1)
+			print_benchmark(&bench);
 		return (0);
 	}
 	if (initialize_stack_array(&b, a.size) == 0)
@@ -93,6 +103,6 @@ int	main(int argc, char **argv)
 		exit(EXIT_FAILURE);
 	}
 	b.size = 0;
-	sort_stack(&a, &b, strat);
+	sort_stack(&a, &b, bench);
 	return (0);
 }

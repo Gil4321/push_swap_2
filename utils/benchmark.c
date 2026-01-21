@@ -6,18 +6,14 @@
 /*   By: acombier <acombier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 15:18:04 by acombier          #+#    #+#             */
-/*   Updated: 2026/01/21 15:26:08 by acombier         ###   ########.fr       */
+/*   Updated: 2026/01/21 17:33:25 by acombier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	init_benchmark(t_benchmark *bench, int enabled)
+void	init_benchmark(t_benchmark *bench)
 {
-	bench->enabled = enabled;
-	bench->disorder = 0.0f;
-	bench->strategy_name = NULL;
-	bench->complexity = NULL;
 	bench->total_ops = 0;
 	bench->sa = 0;
 	bench->sb = 0;
@@ -32,20 +28,71 @@ void	init_benchmark(t_benchmark *bench, int enabled)
 	bench->rrr = 0;
 }
 
+static char	*parse_strategy(int strat)
+{
+	if (strat == 1)
+		return ("Simple");
+	else if (strat == 2)
+		return ("Medium");
+	else if (strat == 3)
+		return ("Complex");
+	else
+		return ("Adaptive");
+}
+
+static char	*parse_complexity(t_benchmark *bench)
+{
+
+	if (bench->strategy == 1)
+		return ("O(n2)");
+	else if (bench->strategy == 2)
+		return ("O(n√n)");
+	else if (bench->strategy == 3)
+		return ("O(nlogn)");
+	else
+	{
+		if (bench->disorder < 0.2)
+			return ("O(n2)");
+		else if (bench->disorder < 0.5)
+			return ("O(n√n)");
+		else
+			return ("O(nlogn)");
+	}
+}
+
+static void	ft_putnbr_fd(int n, int fd, int index)
+{
+	unsigned int	big_nb;
+	unsigned char	c;
+
+	if (n < 0)
+	{
+		write(fd, "-", 1);
+		big_nb = n * -1;
+	}
+	else
+		big_nb = n;
+	if (big_nb / 10 != 0)
+		ft_putnbr_fd((big_nb / 10), fd, index + 1);
+	c = (big_nb % 10) + 48;
+	write(fd, &c, 1);
+	if (index == 2)
+		write(fd, ".", 1);
+	else if (index == 0)
+		ft_printf("%%\n", 2);
+}
+
 void	print_benchmark(t_benchmark *bench)
 {
-	int whole;
-	int frac;
+	int	res;
 
-	if (!bench || !bench->enabled)
+	if (bench->enabled == 0)
 		return ;
-
-	whole = (int)(bench->disorder * 100.0f);
-	frac = (int)((bench->disorder * 10000.0f)) - (whole * 100);
-
-	ft_printf("[bench] disorder: %d.%02d%%\n", 2, whole, frac);
-	ft_printf("[bench] strategy: %s / %s\n", 2, bench->strategy_name,
-		bench->complexity);
+	res = bench->disorder * 10000;
+	ft_printf("[bench] disorder: ", 2);
+	ft_putnbr_fd(res, 2, 0);
+ 	ft_printf("[bench] strategy: %s / %s\n", 2, parse_strategy(bench->strategy),
+		parse_complexity(bench));
 	ft_printf("[bench] total_ops: %d\n", 2,  bench->total_ops);
 	ft_printf("[bench] sa: %d, sb: %d, ss: %d, pa: %d, pb: %d\n", 2 , bench->sa,
 		bench->sb, bench->ss, bench->pa, bench->pb);

@@ -6,11 +6,12 @@
 /*   By: acombier <acombier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 16:58:48 by acombier          #+#    #+#             */
-/*   Updated: 2026/01/21 15:14:38 by acombier         ###   ########.fr       */
+/*   Updated: 2026/01/21 18:03:49 by acombier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
+
 
 void	rra(t_stack *a)
 {
@@ -28,7 +29,7 @@ void	rra(t_stack *a)
 	}
 	get_ptr_value(a->array[0], temp);
 
-	printf("rra\n");
+	ft_printf("rra\n", 1);
 	a->bench->rra++;
 	a->bench->total_ops++;
 }
@@ -49,7 +50,7 @@ void	rrb(t_stack *b)
 	}
 	get_ptr_value(b->array[0], temp);
 	
-	printf("rrb\n");
+	ft_printf("rrb\n", 1);
 	b->bench->rrb++;
 	b->bench->total_ops++;
 }
@@ -82,7 +83,7 @@ void	rrr(t_stack *a, t_stack *b)
 		get_ptr_value(b->array[0], temp);
 	}
 
-	printf("rrr\n");
+	ft_printf("rrr\n", 1);
 	a->bench->rrr++;
 	a->bench->total_ops++;
 }

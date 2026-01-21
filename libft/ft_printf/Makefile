@@ -1,5 +1,5 @@
 SRC = ft_printf.c utility_functions.c utility_functions_2.c \
-	write_functions.c write_functions_2.c
+	write_functions.c write_functions_2.c ../ft_strlen.c
 
 CC = cc
 

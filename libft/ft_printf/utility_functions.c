@@ -6,7 +6,7 @@
 /*   By: adghouai <adghouai@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 12:51:39 by adghouai          #+#    #+#             */
-/*   Updated: 2026/01/21 12:55:39 by adghouai         ###   ########lyon.fr   */
+/*   Updated: 2026/01/21 13:56:06 by adghouai         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ void	ft_unsigned_putnbr(unsigned int nb, int *count_char, int output)
 	(*count_char)++;
 }
 
-int	ft_strlen(const char *str)
+/* int	ft_strlen(const char *str)
 {
 	int	i;
 
@@ -75,4 +75,4 @@ int	ft_strlen(const char *str)
 	while (str[i])
 		i++;
 	return (i);
-}
+} */

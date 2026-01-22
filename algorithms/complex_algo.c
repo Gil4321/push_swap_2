@@ -6,13 +6,13 @@
 /*   By: adghouai <adghouai@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 14:22:05 by adghouai          #+#    #+#             */
-/*   Updated: 2026/01/20 14:02:36 by adghouai         ###   ########lyon.fr   */
+/*   Updated: 2026/01/22 13:05:59 by adghouai         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int	bin_value(int nb, int nb_div)
+static int	bin_value(int nb, int nb_div)
 {
 	int	value;
 
@@ -25,7 +25,7 @@ int	bin_value(int nb, int nb_div)
 	return (value);
 }
 
-void	complex_algo(t_stack *a, t_stack *b, int max_div)
+static void	complex_algo(t_stack *a, t_stack *b, int max_div)
 {
 	size_t	nb_op;
 	size_t	op;

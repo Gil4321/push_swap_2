@@ -6,7 +6,7 @@
 /*   By: adghouai <adghouai@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/19 12:25:38 by adghouai          #+#    #+#             */
-/*   Updated: 2026/01/21 18:47:13 by adghouai         ###   ########lyon.fr   */
+/*   Updated: 2026/01/22 13:14:06 by adghouai         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,35 +26,6 @@ int	ft_strcmp(char *s1, const char *s2)
 		i++;
 	}
 	return (s1[i] - s2[i]);
-}
-
-void	fill_array_index(t_stack *a)
-{
-	size_t	i;
-	size_t	j;
-	int		index;
-	int		value;
-
-	i = 0;
-	while (i < a->size)
-	{
-		j = 0;
-		index = a->size - 1;
-		value = a->array[i][0];
-		while (j < a->size)
-		{
-			if (j == i)
-				j++;
-			else
-			{
-				if (value < a->array[j][0])
-					index--;
-				j++;
-			}
-		}
-		a->array[i][1] = index;
-		i++;
-	}
 }
 
 void	get_ptr_value(int *dst, int *src)

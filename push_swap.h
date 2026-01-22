@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: acombier <acombier@student.42.fr>          +#+  +:+       +#+        */
+/*   By: adghouai <adghouai@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/30 21:37:16 by adghouai          #+#    #+#             */
-/*   Updated: 2026/01/21 17:50:11 by acombier         ###   ########.fr       */
+/*   Updated: 2026/01/22 13:15:28 by adghouai         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,12 +38,6 @@ typedef struct s_benchmark
 	int			rrr;
 }				t_benchmark;
 
-typedef struct s_strat
-{
-	int			strategy;
-	float		disorder;
-}				t_strat;
-
 typedef struct s_stack
 {
 	int			**array;
@@ -59,6 +53,7 @@ typedef struct s_chunk_info
 	size_t		num_chunks;
 }				t_chunk_info;
 
+// Bench functions
 void			init_benchmark(t_benchmark *bench);
 void			print_benchmark(t_benchmark *bench);
 
@@ -81,13 +76,12 @@ void			free_stack(t_stack *stack, size_t j);
 
 // Array filling functions
 void			fill_array(t_stack *a, char **argv, int argc);
-void			fill_array_bis(char **split_args, t_stack *a, size_t *k);
 void			fill_array_index(t_stack *a);
 
 // Simple algo
 void			simple_algo(t_stack *a, t_stack *b);
 
-// Medium algo
+// Complex algo
 void			find_max_div(t_stack *a, t_stack *b);
 
 // Operations
@@ -95,13 +89,8 @@ void			pa(t_stack *a, t_stack *b);
 void			pb(t_stack *a, t_stack *b);
 void			ra(t_stack *a);
 void			rb(t_stack *b);
-void			rr(t_stack *a, t_stack *b);
 void			rra(t_stack *a);
 void			rrb(t_stack *b);
-void			rrr(t_stack *a, t_stack *b);
-void			sa(t_stack *a);
-void			sb(t_stack *b);
-void			ss(t_stack *a, t_stack *b);
 void			get_ptr_value(int *dst, int *src);
 
 // Chunks sort utils

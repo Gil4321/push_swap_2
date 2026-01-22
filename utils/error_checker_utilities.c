@@ -6,7 +6,7 @@
 /*   By: adghouai <adghouai@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/30 22:08:31 by adghouai          #+#    #+#             */
-/*   Updated: 2026/01/20 17:38:21 by adghouai         ###   ########lyon.fr   */
+/*   Updated: 2026/01/22 13:10:21 by adghouai         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,27 +19,6 @@ int	option_check(char *arg)
 		|| !(ft_strcmp(arg, "--bench")))
 		return (1);
 	return (0);
-}
-
-static size_t	word_count(char const *s, char c)
-{
-	size_t	count;
-	size_t	i;
-
-	i = 0;
-	count = 0;
-	while (s[i])
-	{
-		while (s[i] == c)
-			i++;
-		if (s[i] != c && s[i])
-		{
-			count++;
-			while (s[i] != c && s[i])
-				i++;
-		}
-	}
-	return (count);
 }
 
 int	ft_atoi_range(const char *nptr)
@@ -89,6 +68,27 @@ int	ft_atoi(const char *nptr)
 		i++;
 	}
 	return (result);
+}
+
+static size_t	word_count(char const *s, char c)
+{
+	size_t	count;
+	size_t	i;
+
+	i = 0;
+	count = 0;
+	while (s[i])
+	{
+		while (s[i] == c)
+			i++;
+		if (s[i] != c && s[i])
+		{
+			count++;
+			while (s[i] != c && s[i])
+				i++;
+		}
+	}
+	return (count);
 }
 
 size_t	compute_tab_len(char **argv, int argc)

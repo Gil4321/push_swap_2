@@ -6,7 +6,7 @@
 /*   By: adghouai <adghouai@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 16:58:48 by acombier          #+#    #+#             */
-/*   Updated: 2026/01/21 18:47:42 by adghouai         ###   ########lyon.fr   */
+/*   Updated: 2026/01/22 12:22:22 by adghouai         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ void	rra(t_stack *a)
 		i--;
 	}
 	get_ptr_value(a->array[0], temp);
-	ft_printf("rra\n", 1);
+	if (a->bench->enabled == 0)
+		ft_printf("rra\n", 1);
 	a->bench->rra++;
 	a->bench->total_ops++;
 }
@@ -47,7 +48,8 @@ void	rrb(t_stack *b)
 		i--;
 	}
 	get_ptr_value(b->array[0], temp);
-	ft_printf("rrb\n", 1);
+	if (b->bench->enabled == 0)
+		ft_printf("rrb\n", 1);
 	b->bench->rrb++;
 	b->bench->total_ops++;
 }

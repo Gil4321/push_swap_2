@@ -6,7 +6,7 @@
 /*   By: adghouai <adghouai@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/30 21:12:42 by adghouai          #+#    #+#             */
-/*   Updated: 2026/01/21 18:41:50 by adghouai         ###   ########lyon.fr   */
+/*   Updated: 2026/01/22 12:38:25 by adghouai         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ static float	compute_disorder(int **tab, size_t size)
 {
 	float	mistakes;
 	float	pairs;
+	float	result;
 	size_t	i;
 	size_t	j;
 
@@ -36,13 +37,15 @@ static float	compute_disorder(int **tab, size_t size)
 	}
 	if (pairs == 0)
 		return (0);
-	return (mistakes / pairs);
+	result = mistakes / pairs;
+	return (result);
 }
 
 static void	sort_stack(t_stack *a, t_stack *b, t_benchmark bench)
 {
 	a->bench = &bench;
 	b->bench = &bench;
+	b->size = 0;
 	if (bench.strategy == 1)
 		simple_algo(a, b);
 	else if (bench.strategy == 2)
@@ -60,7 +63,8 @@ static void	sort_stack(t_stack *a, t_stack *b, t_benchmark bench)
 	}
 	free_stack(a, a->size);
 	free_stack(b, a->size);
-	print_benchmark(&bench);
+	if (bench.enabled == 1)
+		print_benchmark(&bench);
 }
 
 int	main(int argc, char **argv)
@@ -87,7 +91,6 @@ int	main(int argc, char **argv)
 		free_stack(&a, a.size);
 		exit(EXIT_FAILURE);
 	}
-	b.size = 0;
 	sort_stack(&a, &b, bench);
 	return (0);
 }

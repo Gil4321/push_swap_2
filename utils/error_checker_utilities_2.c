@@ -6,7 +6,7 @@
 /*   By: adghouai <adghouai@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/20 17:06:09 by adghouai          #+#    #+#             */
-/*   Updated: 2026/01/20 17:38:24 by adghouai         ###   ########lyon.fr   */
+/*   Updated: 2026/01/22 13:14:17 by adghouai         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,36 @@ void	free_double_tab(char **tab)
 	free(tab);
 }
 
-void	fill_array_bis(char **split_args, t_stack *a, size_t *k)
+void	fill_array_index(t_stack *a)
+{
+	size_t	i;
+	size_t	j;
+	int		index;
+	int		value;
+
+	i = 0;
+	while (i < a->size)
+	{
+		j = 0;
+		index = a->size - 1;
+		value = a->array[i][0];
+		while (j < a->size)
+		{
+			if (j == i)
+				j++;
+			else
+			{
+				if (value < a->array[j][0])
+					index--;
+				j++;
+			}
+		}
+		a->array[i][1] = index;
+		i++;
+	}
+}
+
+static void	fill_array_bis(char **split_args, t_stack *a, size_t *k)
 {
 	size_t	j;
 

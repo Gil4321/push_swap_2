@@ -67,14 +67,6 @@ make re
 - Errors are printed to stderr as `Error\n`
 - Benchmark data (if enabled) is printed to stderr
 
-### Verification
-
-You can verify the output using the provided checker:
-```bash
-ARG="4 67 3 87 23"; ./push_swap $ARG | wc -l
-ARG="4 67 3 87 23"; ./push_swap $ARG | ./checker_linux $ARG
-```
-
 ## Algorithms
 
 ### Overview

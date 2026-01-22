@@ -22,7 +22,7 @@ This implementation features an **adaptive algorithm selection** system that aut
 # Build the project
 make
 
-# Clean object files
+# Clean object and dependencies files
 make clean
 
 # Full clean (remove executable and libraries)
@@ -39,13 +39,13 @@ make re
 ```
 
 **Options:**
-| Option | Description |
-|--------|-------------|
-| `--simple` | Force selection-based algorithm |
-| `--medium` | Force chunk-based algorithm |
-| `--complex` | Force radix sort algorithm |
+| Option       | Description                      |
+|--------------|----------------------------------|
+| `--simple`   | Force selection-based algorithm  |
+| `--medium`   | Force chunk-based algorithm      |
+| `--complex`  | Force radix sort algorithm       |
 | `--adaptive` | Use adaptive selection (default) |
-| `--bench` | Display performance benchmark |
+| `--bench`    | Display performance benchmark    |
 
 **Examples:**
 ```bash
@@ -81,11 +81,11 @@ ARG="4 67 3 87 23"; ./push_swap $ARG | ./checker_linux $ARG
 
 This project implements three distinct sorting algorithms with automatic selection based on input disorder:
 
-| Algorithm | Complexity | Best For |
-|-----------|------------|----------|
-| Simple (Selection) | O(n²) | Nearly sorted input (disorder < 20%) |
-| Medium (Chunk-based) | O(n√n) | Moderate disorder (20% - 50%) |
-| Complex (Radix) | O(n log n) | High disorder (> 50%) |
+| Algorithm            | Complexity | Best For                             |
+|----------------------|------------|--------------------------------------|
+| Simple (Selection)   | O(n²)      | Nearly sorted input (disorder < 20%) |
+| Medium (Chunk-based) | O(n√n)     | Moderate disorder (20% - 50%)        |
+| Complex (Radix)      | O(n log n) | High disorder (> 50%)                |
 
 ### Algorithm Details and Justification
 
@@ -150,11 +150,11 @@ This project implements three distinct sorting algorithms with automatic selecti
 
 The default behavior analyzes the input's **disorder level** (ratio of inversions to total pairs) and selects the optimal algorithm:
 
-| Disorder Level | Algorithm Selected | Reasoning |
-|----------------|-------------------|-----------|
-| < 20% | Simple | Few elements out of place; selection sort handles efficiently |
-| 20% - 50% | Medium | Moderate reshuffling needed; chunks provide good balance |
-| > 50% | Complex | Heavy restructuring needed; radix sort guarantees efficiency |
+| Disorder Level | Algorithm Selected | Reasoning                                                     |
+|----------------|--------------------|---------------------------------------------------------------|
+| < 20%          | Simple             | Few elements out of place; selection sort handles efficiently |
+| 20% - 50%      | Medium             | Moderate reshuffling needed; chunks provide good balance      |
+| > 50%          | Complex            | Heavy restructuring needed; radix sort guarantees efficiency  |
 
 This adaptive approach ensures optimal performance across different input patterns without requiring manual algorithm selection.
 
